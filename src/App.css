@@ -46,3 +46,29 @@ outline: none;
 padding: 10px;
 
 }
+.wrapper{
+  display: flex;
+  flex-direction: row;
+}
+.sidenav{
+display: flex;
+flex-direction: column;
+background: rgb(91, 91, 211);
+}
+.sidenav-opt{
+  cursor: pointer;
+  border-bottom: solid .5px rgb(187, 185, 185);
+  color: rgb(223, 223, 223);
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.sidenav-opt:hover{
+  background: rgb(112, 112, 219);
+}
+.sidenav-opt-icon{
+  width: 20px;
+  padding-left: 12px;
+  padding-top: 8px;
+}
