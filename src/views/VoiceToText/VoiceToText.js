@@ -59,6 +59,8 @@ const VoiceToText = ()=>{
     recognition.onspeechend = function() {
     //   instructions.text('No activity.');
             setIsFinished(true)
+            setIsRecording(false)
+
     console.log("---No activity.----")
 
     }
