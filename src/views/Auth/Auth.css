@@ -1,0 +1,299 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
+
+
+.sr-only {
+  visibility: hidden;
+}
+
+.hidden {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  display: none;
+  overflow: hidden;
+}
+
+html {
+  font-size: 16px;
+
+}
+
+.auth {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Rubik", sans-serif;
+  position: relative;
+  background-color: #5b5bd3;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: linear-gradient(#5b5bd3, #fff); */
+
+}
+.logo-login-card{
+    width: 100px;
+}
+.challenge-title {
+  text-align: center;
+  padding: 0;
+  margin: 1rem 0 0.5rem;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.challenge-subtitle {
+  text-align: center;
+  margin: 0;
+  font-size: 1.125rem;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+.challenge-part-of {
+  text-align: center;
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  color: #0d1117;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 0.5rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.challenge-part-of a,
+.challenge-part-of a:visited {
+  color: #0d1117;
+  -webkit-text-decoration-style: wavy;
+          text-decoration-style: wavy;
+}
+.challenge-part-of a:hover, .challenge-part-of a:active,
+.challenge-part-of a:visited:hover,
+.challenge-part-of a:visited:active {
+  color: #1f2938;
+}
+
+.login-card {
+  margin: auto;
+  width: 800px;
+  min-height: 400px;
+  display: flex;
+  align-items: stretch;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.login-glass {
+  flex: 0 0 40%;
+  background-color: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.login-glass svg {
+  width: 30%;
+  fill: white;
+}
+
+.login-form-container {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: white;
+  box-sizing: border-box;
+
+}
+.login-form-container .login-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 0 2rem;
+}
+.login-form-container .form-control {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.login-form-container .form-control:not(:last-of-type) {
+  margin-bottom: 1.5rem;
+}
+.login-form-container .form-control > label {
+  position: absolute;
+  font-weight: bold;
+  color: #4d555f;
+  font-size: 0.875rem;
+  top: 0;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 0 0.25rem;
+}
+.login-form-container .form-control > input {
+  flex: 1 0 auto;
+  padding: 0.875rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5da;
+  transition: border-color 0.2s ease;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.login-form-container .form-control > input:hover {
+  border-color: #e56b6f;
+}
+.login-form-container .form-control > input:focus {
+  outline: 0;
+  border-color: #e56b6f;
+}
+.login-form-container .form-control .form-remember,
+.login-form-container .form-control .form-forgot {
+  flex: 1 0 50%;
+  display: flex;
+  align-items: center;
+}
+.login-form-container .form-control .form-remember label {
+  cursor: pointer;
+  color: #7c8896;
+  transition: color 0.2s ease;
+  padding-left: 0.5rem;
+  position: relative;
+}
+.login-form-container .form-control .form-remember label:hover {
+  color: #0d1117;
+}
+.login-form-container .form-control .form-remember label::before {
+  content: "";
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  top: 50%;
+  transform: translateY(-50%);
+  left: -0.875rem;
+  color: #7c8896;
+}
+.login-form-container .form-control .form-remember input:hover + label {
+  color: #0d1117;
+}
+.login-form-container .form-control .form-remember input:checked + label::before {
+  content: "";
+}
+.login-form-container .form-control .form-remember input {
+  cursor: pointer;
+  margin: 0;
+  opacity: 0;
+}
+.login-form-container .form-control .form-forgot {
+  justify-content: flex-end;
+}
+.login-form-container .form-control .form-forgot a,
+.login-form-container .form-control .form-forgot a:focus {
+  color: #e56b6f;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.login-form-container .form-control .form-forgot a:hover, .login-form-container .form-control .form-forgot a:active,
+.login-form-container .form-control .form-forgot a:focus:hover,
+.login-form-container .form-control .form-forgot a:focus:active {
+  text-decoration: underline;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  background-color: #5b5bd3;
+  border: 0;
+  color: white;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #5b5bd3;;
+  transition: background-color 0.1s ease-in;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.btn:hover {
+  background-color: #5b5bd3;;
+}
+.btn:active {
+  background-color: #5b5bd3;;
+}
+.btn:focus {
+  outline: 1px dotted #5b5bd3;;
+}
+.btn.btn-full {
+  flex: 1 0 auto;
+  font-weight: bold;
+  font-size: 0.875rem;
+  justify-content: center;
+}
+.btn.btn-default {
+  background-color: white;
+  color: #98a1ad;
+  border-color: #d1d5da;
+}
+.btn.btn-default:hover {
+  background-color: #f1f2f4;
+}
+.btn.btn-default:active {
+  background-color: #e3e5e8;
+}
+
+.divider {
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  font-size: 0.875rem;
+  color: #b5bbc3;
+  position: relative;
+}
+.divider::before, .divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 140px;
+  height: 1px;
+  background-color: #d1d5da;
+}
+.divider::before {
+  left: 0;
+  transform: translateX(-100%);
+}
+.divider::after {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.social-list {
+  display: flex;
+  align-items: center;
+  margin: 0 -0.5rem;
+  text-decoration: none;
+  list-style-type:none;
+}
+.social-list li {
+  flex: 0 0 33.3333333333%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.social-list li .btn {
+  width: 100%;
+  justify-content: center;
+}
+.social-icon{
+    width:15px;
+}
