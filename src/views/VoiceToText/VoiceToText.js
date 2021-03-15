@@ -5,37 +5,49 @@ import logo from '../../assets/document.svg';
 import {Link } from 'react-router-dom';
 
 const VoiceToText = ()=>{
+    const destroyClickedElement=(event)=>{
+        document.body.removeChild(event.target);
+      }
 
-    // localStorage.setItem('chat', [])
+    const saveTextAsFile = (textToWrite, fileNameToSaveAs)=> {
+        let textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+        let downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        downloadLink.innerHTML = "Download File";
+        if (window.webkitURL != null) {
+          downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        }
+        else {
+          downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+          downloadLink.onclick = destroyClickedElement;
+          downloadLink.style.display = "none";
+          document.body.appendChild(downloadLink);
+        }
+        downloadLink.click();
+  }
     const [text, setText] = useState([]);
     const [users, setUsers] = useState(['Ram', 'Mohan', 'Sohan', 'Pulkit'])
     const [isRecording, setIsRecording] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
 
-    var SpeechRecognition = window.webkitSpeechRecognition;
+    let SpeechRecognition = window.webkitSpeechRecognition;
   
-    var recognition = new SpeechRecognition();
+    let recognition = new SpeechRecognition();
     
-    // var Textbox = $('#textbox');
-    // var instructions = $('instructions');
-    
-    var Content = '';
+    let Content = '';
     
     recognition.continuous = true;
     
     recognition.onresult = function(event) {
     
-      var current = event.resultIndex;
-    
-      var transcript = event.results[current][0].transcript;
-    var objDiv = document.getElementById("your_div");
-            objDiv.scrollTop = objDiv.scrollHeight;
+        let current = event.resultIndex;
+        let transcript = event.results[current][0].transcript;
+        let objDiv = document.getElementById("your_div");
+        objDiv.scrollTop = objDiv.scrollHeight;
         if(Array.isArray(JSON.parse(localStorage.getItem("chat")))){
             let c = [...JSON.parse(localStorage.getItem("chat"))]
-            console.log("---old",c)
             Content = users[Math.floor((Math.random() * 3) + 1)] +' : ' + transcript;
             c.push(Content)
-            console.log("---new",c)
             localStorage.setItem('chat', JSON.stringify(c))
             setText(c)
         }
@@ -43,21 +55,16 @@ const VoiceToText = ()=>{
             let c = []
             Content = users[Math.floor((Math.random() * 3) + 1)] +' : ' + transcript;
             c.push(Content)
-            console.log("---new",c)
             localStorage.setItem('chat', JSON.stringify(c))
             setText(c)
         }
-      
     };
     
     recognition.onstart = function() {
         console.log("---Voice recognition is ON.----",Content)
-
-    //   instructions.text('Voice recognition is ON.');
     }
     
     recognition.onspeechend = function() {
-    //   instructions.text('No activity.');
             setIsFinished(true)
             setIsRecording(false)
 
@@ -78,11 +85,20 @@ const VoiceToText = ()=>{
       setIsRecording(true)
       recognition.start();
     }
-    
-    // Textbox.on('input', function() {
-    //   Content = $(this).val();
-    // })
-    // console.log("-------text-----",text)
+    const download = ()=>{
+        let str = ''
+        for(let i = 0; i <text.length; i++){
+            str = str + text[i]
+        }
+        saveTextAsFile(str, 'sample.txt')
+    }
+    const save = ()=>{
+        let str = ''
+        for(let i = 0; i <text.length; i++){
+            str = str + text[i]
+        }
+        // saveTextAsFile(str, 'sample.txt')
+    }
 
     return   <div className="voice-to-text">
                 <div className="header">
@@ -106,6 +122,8 @@ const VoiceToText = ()=>{
                         })}
                     </div>         
                     <button id="start-btn" title="Start" onClick={start}>Start</button>
+                    <button id="start-btn" title="Start" onClick={download}>Download</button>
+
                     <p>{isRecording===true ? 'Recording is running' : null}</p>
                     <p>{isFinished===true ? 'Finished' : null}</p>
 
